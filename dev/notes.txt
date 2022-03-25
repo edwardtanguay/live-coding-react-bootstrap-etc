@@ -7,8 +7,8 @@
 	- x autofill
 - x required fields
 - x last name must be 4 characters or more
-- if error, then button disabled
-- intellisense
+- x if error, then button disabled
+- x intellisense
 	- /1 - Jim Smith
 	- /2 - Niko Anders
 
