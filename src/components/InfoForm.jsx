@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 
 export const InfoForm = () => {
 	const [formData, setFormData] = useState({});
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, formState: {errors} } = useForm();
+	console.log(errors);
 	return (
 		<Card className="mt-4">
 			<Card.Body>
@@ -16,6 +17,9 @@ export const InfoForm = () => {
 						<input className="app-input" type="text" {...register("firstName", { required: 'Please enter a first name.' })} />
 						<Form.Text className="text-muted">
 							You can also type <code>/id-number</code> to lookup employee.
+						</Form.Text>
+						<Form.Text className="text-muted">
+							<div>{errors.firstName?.message}</div>
 						</Form.Text>
 					</Form.Group>
 					<Form.Group className="mb-3">
