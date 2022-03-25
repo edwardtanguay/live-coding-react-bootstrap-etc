@@ -1,13 +1,19 @@
+import { useState } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
 export const InfoForm = () => {
+	const [formData, setFormData] = useState({});
+	const { register, handleSubmit } = useForm();
 	return (
 		<Card className="mt-4">
 			<Card.Body>
-				<Form>
+				<form onSubmit={handleSubmit((data) => {
+					setFormData(data);
+				})}>
 					<Form.Group className="mb-3">
 						<Form.Label>First Name</Form.Label>
-						<Form.Control type="text" />
+						<input className="app-input" type="text" {...register("firstName", { required: 'Please enter a first name.' })} />
 						<Form.Text className="text-muted">
 							You can also type <code>/id-number</code> to lookup employee.
 						</Form.Text>
@@ -24,7 +30,11 @@ export const InfoForm = () => {
 					<Button variant="primary" type="submit">
 						Submit
 					</Button>
-				</Form>
+
+					{Object.keys(formData).length > 0 && (
+						<div className="formData"><pre>{JSON.stringify(formData, null, 2)}</pre></div>
+					)}
+				</form>
 			</Card.Body>
 		</Card>
 	)
