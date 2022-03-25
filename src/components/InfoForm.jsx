@@ -18,13 +18,17 @@ export const InfoForm = () => {
 						<Form.Text className="text-muted">
 							You can also type <code>/id-number</code> to lookup employee.
 						</Form.Text>
-						<Form.Text className="text-muted">
+						<Form.Text className="text-muted"></Form.Text>
 							<div>{errors.firstName?.message}</div>
 						</Form.Text>
 					</Form.Group>
+					
 					<Form.Group className="mb-3">
 						<Form.Label>Last Name</Form.Label>
-						<Form.Control type="text" />
+						<input className="app-input" type="text" {...register("lastName", { required: 'Please enter a last name.' })} />
+						<Form.Text className="text-muted">
+							<div>{errors.lastName?.message}</div>
+						</Form.Text>
 					</Form.Group>
 
 					<Form.Group className="mb-3">
