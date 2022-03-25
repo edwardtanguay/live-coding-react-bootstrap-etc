@@ -21,15 +21,16 @@ export const InfoForm = () => {
 
 	useEffect(() => {
 		const firstName = watch('firstName');
-		switch (firstName) {
-			case '/2':
-				setValue('firstName', employees[0].firstName);
-				setValue('lastName', employees[0].lastName);
-				break;
-			case '/5':
-				setValue('firstName', employees[1].firstName);
-				setValue('lastName', employees[1].lastName);
-				break;
+
+		if (firstName.startsWith('/') && firstName.endsWith('/')) {
+			const id = Number(firstName.replaceAll('/', ''));
+			if (Number.isInteger(id) && id > 0) {
+				const employee = employees.find(m => m.employeeID === id);
+				if (employee !== undefined) {
+					setValue('firstName', employee.firstName);
+					setValue('lastName', employee.lastName);
+				}
+			}
 		}
 	}, [watch('firstName')]);
 
@@ -43,7 +44,7 @@ export const InfoForm = () => {
 						<Form.Label>First Name</Form.Label>
 						<input className="app-input" type="text" {...register("firstName", { required: 'Please enter a first name.', minLength: { value: 4, message: "First name must have at least 4 characters." } })} />
 						<Form.Text className="text-muted">
-							You can also type <code>/id-number</code> to lookup employee.
+							You can also type <code>/id/</code> to lookup employee, available ids: {employees.map(m=> m.employeeID).join(', ')}.
 						</Form.Text>
 						<Form.Text className="text-muted">
 							<div>{errors.firstName?.message}</div>
