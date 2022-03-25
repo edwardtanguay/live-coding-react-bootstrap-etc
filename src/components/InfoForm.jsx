@@ -11,6 +11,14 @@ export const InfoForm = () => {
 	});
 
 	useEffect(() => {
+		(async () => {
+			const response = await fetch('http://localhost:5000/employees');
+			const employees = await response.json();
+			console.log(employees);
+		})();
+	}, []);
+
+	useEffect(() => {
 		const firstName = watch('firstName');
 		switch (firstName) {
 			case '/1':
@@ -32,7 +40,7 @@ export const InfoForm = () => {
 				})}>
 					<Form.Group className="mb-3">
 						<Form.Label>First Name</Form.Label>
-						<input className="app-input" type="text" {...register("firstName", { required: 'Please enter a first name.', minLength: { value: 4, message: "First name must have at least 4 characters." }})} />
+						<input className="app-input" type="text" {...register("firstName", { required: 'Please enter a first name.', minLength: { value: 4, message: "First name must have at least 4 characters." } })} />
 						<Form.Text className="text-muted">
 							You can also type <code>/id-number</code> to lookup employee.
 						</Form.Text>
@@ -57,7 +65,7 @@ export const InfoForm = () => {
 						</Form.Text>
 					</Form.Group>
 
-					<Button  disabled={Object.keys(errors).length} variant="primary" type="submit">
+					<Button disabled={Object.keys(errors).length} variant="primary" type="submit">
 						Submit
 					</Button>
 
