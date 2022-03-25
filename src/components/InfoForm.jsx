@@ -1,15 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 export const InfoForm = () => {
 	const [formData, setFormData] = useState({});
-	const { register, handleSubmit, formState: { errors } } = useForm({
+	const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm({
 		defaultValues: {
 			department: 'Sales'
 		}
 	});
-	console.log(errors);
+
+	useEffect(() => {
+		const firstName = watch('firstName');
+		switch (firstName) {
+			case '/1':
+				setValue('firstName', 'Jim');
+				setValue('lastName', 'Smith');
+				break;
+			case '/2':
+				setValue('firstName', 'Niko');
+				setValue('lastName', 'Anders');
+				break;
+		}
+	}, [watch('firstName')]);
+
 	return (
 		<Card className="mt-4">
 			<Card.Body>

@@ -3,7 +3,8 @@
 - x https://bootswatch.com dark theme
 
 - .. implement Bootstrap form with react-hook-form
-	- .. default values
+	- x default values
+	- .. autofill
 
 - form:
 	- First Name
