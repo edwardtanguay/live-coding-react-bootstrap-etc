@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 
 export const InfoForm = () => {
 	const [formData, setFormData] = useState({});
+	const [employees, setEmployees] = useState([]);
 	const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm({
 		defaultValues: {
 			department: 'Sales'
@@ -14,20 +15,20 @@ export const InfoForm = () => {
 		(async () => {
 			const response = await fetch('http://localhost:5000/employees');
 			const employees = await response.json();
-			console.log(employees);
+			setEmployees(employees);
 		})();
 	}, []);
 
 	useEffect(() => {
 		const firstName = watch('firstName');
 		switch (firstName) {
-			case '/1':
-				setValue('firstName', 'Jim');
-				setValue('lastName', 'Smith');
-				break;
 			case '/2':
-				setValue('firstName', 'Niko');
-				setValue('lastName', 'Anders');
+				setValue('firstName', employees[0].firstName);
+				setValue('lastName', employees[0].lastName);
+				break;
+			case '/5':
+				setValue('firstName', employees[1].firstName);
+				setValue('lastName', employees[1].lastName);
 				break;
 		}
 	}, [watch('firstName')]);
