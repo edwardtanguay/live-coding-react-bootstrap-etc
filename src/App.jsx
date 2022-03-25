@@ -4,6 +4,7 @@ import './styles/bootstrap.dark.min.css';
 import './styles/App.scss'
 import { Button, Container } from 'react-bootstrap';
 import { CarouselExample } from './components/CarouselExample';
+import { InfoForm } from './components/InfoForm';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Button className="ms-2" size="lg" variant="outline-info" >Delete User</Button>
 			<hr/>
 			<CarouselExample/>
+			<InfoForm/>
 			</Container>
 		</div>
 	)

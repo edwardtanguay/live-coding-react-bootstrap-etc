@@ -1,3 +1,20 @@
 - x create component with bootstrap styles
 - x install SASS
 - x https://bootswatch.com dark theme
+
+- .. implement Bootstrap form with react-hook-form
+
+- form:
+	- First Name
+	- Last Name
+	- Department
+- required fields
+- last name must be 4 characters or more
+- if error, then button disabled
+- intellisense
+	- /1 - Jim Smith
+	- /2 - Niko Anders
+
+- json-server:
+	- https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/employees.json
+	- connect intellisense with id
