@@ -4,7 +4,11 @@ import { useForm } from 'react-hook-form';
 
 export const InfoForm = () => {
 	const [formData, setFormData] = useState({});
-	const { register, handleSubmit, formState: {errors} } = useForm();
+	const { register, handleSubmit, formState: { errors } } = useForm({
+		defaultValues: {
+			department: 'Sales'
+		}
+	});
 	console.log(errors);
 	return (
 		<Card className="mt-4">
@@ -18,11 +22,11 @@ export const InfoForm = () => {
 						<Form.Text className="text-muted">
 							You can also type <code>/id-number</code> to lookup employee.
 						</Form.Text>
-						<Form.Text className="text-muted"></Form.Text>
+						<Form.Text className="text-muted">
 							<div>{errors.firstName?.message}</div>
 						</Form.Text>
 					</Form.Group>
-					
+
 					<Form.Group className="mb-3">
 						<Form.Label>Last Name</Form.Label>
 						<input className="app-input" type="text" {...register("lastName", { required: 'Please enter a last name.' })} />
@@ -33,8 +37,12 @@ export const InfoForm = () => {
 
 					<Form.Group className="mb-3">
 						<Form.Label>Department</Form.Label>
-						<Form.Control type="text" />
+						<input className="app-input" type="text" {...register("department", { required: 'Please enter a department.' })} />
+						<Form.Text className="text-muted">
+							<div>{errors.department?.message}</div>
+						</Form.Text>
 					</Form.Group>
+
 					<Button variant="primary" type="submit">
 						Submit
 					</Button>
