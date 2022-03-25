@@ -2,7 +2,7 @@ import { Carousel } from 'react-bootstrap';
 
 export const CarouselExample = () => {
 	return (
-		<Carousel>
+		<Carousel className="app-carousel">
 			<Carousel.Item>
 				<img
 					className="d-block w-100"
