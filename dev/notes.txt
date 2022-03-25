@@ -1,0 +1,3 @@
+- .. create component with bootstrap styles
+
+- install SASS

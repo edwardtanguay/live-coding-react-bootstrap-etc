@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { Button, Container } from 'react-bootstrap';
+import { CarouselExample } from './components/CarouselExample';
 
 function App() {
 	return (
@@ -10,6 +11,8 @@ function App() {
 				<Button variant="success">Submit</Button>
 				<Button className="ms-2" disabled variant="danger">Delete User</Button>
 				<Button className="ms-2" size="lg" variant="outline-info" >Delete User</Button>
+			<hr/>
+			<CarouselExample/>
 			</Container>
 		</div>
 	)
