@@ -6,7 +6,7 @@
 	- x default values
 	- x autofill
 - x required fields
-- .. last name must be 4 characters or more
+- x last name must be 4 characters or more
 - if error, then button disabled
 - intellisense
 	- /1 - Jim Smith

@@ -57,7 +57,7 @@ export const InfoForm = () => {
 						</Form.Text>
 					</Form.Group>
 
-					<Button variant="primary" type="submit">
+					<Button  disabled={Object.keys(errors).length} variant="primary" type="submit">
 						Submit
 					</Button>
 
