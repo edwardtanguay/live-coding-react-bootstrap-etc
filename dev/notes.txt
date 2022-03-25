@@ -1,3 +1,3 @@
 - x create component with bootstrap styles
 - x install SASS
-- .. https://bootswatch.com dark theme
+- x https://bootswatch.com dark theme
