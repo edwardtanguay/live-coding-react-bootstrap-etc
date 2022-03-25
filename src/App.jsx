@@ -1,5 +1,6 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/bootstrap.min.css';
+import './styles/bootstrap.dark.min.css';
+// import './styles/bootstrap.sketchy.min.css';
 import './styles/App.scss'
 import { Button, Container } from 'react-bootstrap';
 import { CarouselExample } from './components/CarouselExample';
